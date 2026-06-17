@@ -1,0 +1,23 @@
+import urllib.request
+import sys
+
+def fetch_and_display_code(url):
+    try:
+        print(f"Fetching content from: {url}\n")
+        
+        # Send a request to the URL
+        with urllib.request.urlopen(url) as response:
+            # Read the content and decode it to a string
+            html_content = response.read().decode('utf-8')
+            
+            # Display the content in the command prompt
+            print(html_content)
+            
+    except Exception as e:
+        print(f"An error occurred: {e}", file=sys.stderr)
+
+if __name__ == "__main__":
+    # Replace this with the URL you want to fetch code from
+    target_url = "https://example.com"
+    
+    fetch_and_display_code(target_url)
